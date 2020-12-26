@@ -9,3 +9,15 @@ before-install:
 
 script:
   - docker run -e CI=true froliceric/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-632833733508"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+
+    DockerReact-env.eba-9rjgwgse.us-east-2.elasticbeanstalk.com
